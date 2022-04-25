@@ -12,7 +12,7 @@ class SpeedModel:
         self._desiredSpeed = None
         self._minSpeed = None
         self._maxSpeed = None
-
+        self._relaxationTime = None
         self.internalFactors = internalFactors
 
         self.initialize()
