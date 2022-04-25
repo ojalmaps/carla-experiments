@@ -4,7 +4,7 @@ risk_level: "risky"
 relaxation_time: 1
 desired_speed: 3
 desired_distance_gap: 0
-speed_model: "static"
+speed_model: "joj"
 #desired_time_gap: 2
 
 # speed change related factor.
