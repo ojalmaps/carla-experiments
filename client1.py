@@ -48,8 +48,8 @@ if client.get_client_version() != client.get_server_version():
 # world = client.load_world('circle_t_junctions')
 
 mapManager = MapManager(client)
-# mapManager.load(MapNames.t_junction)
-mapManager.load(MapNames.circle_t_junctions)
+mapManager.load(MapNames.t_junction)
+# mapManager.load(MapNames.circle_t_junctions)
 
 world = mapManager.world
 
