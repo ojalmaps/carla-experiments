@@ -47,6 +47,12 @@ class Research1v1(BaseResearch):
         self.settingsManager = SettingsManager(self.client, settings)
         self.pedFactory = PedestrianFactory(self.client, visualizer=self.visualizer, time_delta=self.time_delta)
         self.vehicleFactory = VehicleFactory(self.client, visualizer=self.visualizer)
+        
+        # blueprints = [bp for bp in self.client.world.get_blueprint_library().filter('*')]
+        # for blueprint in blueprints:
+        #     print(blueprint.id)
+        # for attr in blueprint:
+        #     print('  - {}'.format(attr))
 
         self.episodeNumber = 0
         self.episodeTimeStep = 0
@@ -126,12 +132,12 @@ class Research1v1(BaseResearch):
 
         self.walker = self.pedFactory.spawn(self.walkerSpawnPoint)
 
-        if self.walker is None:
-            self.logger.error("Cannot spawn walker")
-            exit("Cannot spawn walker")
-        else:
-            self.logger.info(f"successfully spawn walker {self.walker.id} at {self.walkerSpawnPoint.location.x, self.walkerSpawnPoint.location.y, self.walkerSpawnPoint.location.z}")
-            self.logger.info(self.walker.get_control())
+        # if self.walker is None:
+        #     self.logger.error("Cannot spawn walker")
+        #     exit("Cannot spawn walker")
+        # else:
+        #     self.logger.info(f"successfully spawn walker {self.walker.id} at {self.walkerSpawnPoint.location.x, self.walkerSpawnPoint.location.y, self.walkerSpawnPoint.location.z}")
+        #     self.logger.info(self.walker.get_control())
             
             # visualizer.trackOnTick(walker.id, {"life_time": 1})      
         
@@ -169,11 +175,11 @@ class Research1v1(BaseResearch):
             vehicleSpawnPoint.location += carla.Location(z=1)
 
         self.vehicle = self.vehicleFactory.spawn(vehicleSpawnPoint)       
-        if self.vehicle is None:
-            self.logger.error("Cannot spawn vehicle")
-            exit("Cannot spawn vehicle")
-        else:
-            self.logger.info(f"successfully spawn vehicle at {vehicleSpawnPoint.location.x, vehicleSpawnPoint.location.y, vehicleSpawnPoint.location.z}")
+        # if self.vehicle is None:
+        #     self.logger.error("Cannot spawn vehicle")
+        #     exit("Cannot spawn vehicle")
+        # else:
+        #     self.logger.info(f"successfully spawn vehicle at {vehicleSpawnPoint.location.x, vehicleSpawnPoint.location.y, vehicleSpawnPoint.location.z}")
 
         self.tickOrWaitBeforeSimulation() # otherwise we can get wrong vehicle location!
 
@@ -346,8 +352,8 @@ class Research1v1(BaseResearch):
         walkerWp = self.map.get_waypoint(self.walkerAgent.location).transform.location
         waypoints = Utils.getWaypointsToDestination(self.vehicle, walkerWp)
         self.visualizer.drawWaypoints(waypoints, color=(0, 0, 0), z=1, life_time=0.1)
-        self.logger.info(f"Linear distance to pedestrian {self.walkerAgent.actorManager.distanceFromNearestOncomingVehicle()}")
-        self.logger.info(f"Arc distance to pedestrian {Utils.getDistanceCoveredByWaypoints(waypoints)}")
+        # self.logger.info(f"Linear distance to pedestrian {self.walkerAgent.actorManager.distanceFromNearestOncomingVehicle()}")
+        # self.logger.info(f"Arc distance to pedestrian {Utils.getDistanceCoveredByWaypoints(waypoints)}")
     
     
     def updateWalker(self, world_snapshot):
