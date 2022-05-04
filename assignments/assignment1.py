@@ -12,7 +12,6 @@ world = client.get_world()  # default weorld is too large
 
 world = client.load_world("cirle t_junctions")  # loading
 
-world = client.load_word(")
 spam_points = map.get_spam_points()
 
 for point in spawn_points:
