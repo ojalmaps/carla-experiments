@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+ 
 import carla
 from carla import VehicleLightState as vls
 from numpy import random
