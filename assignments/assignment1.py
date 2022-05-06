@@ -20,3 +20,5 @@ for point in spawn_points:
 
 blueprint_library = world.get_blueprint_library()
 vehicle = blue_print.giler('vehicle.audi.a2')
+
+# Adding camera
