@@ -33,6 +33,7 @@ class MapManager(ClientUser):
         super().__init__(client)
         self.currentMapName = None
         self._waypoints = None
+        self.w = None
 
     @property
     def spawn_points(self) -> List[carla.Transform]:
@@ -65,6 +66,8 @@ class MapManager(ClientUser):
         if mapName.value != currentMapName:
             print(f"loading new map {mapName.value}")
             self.client.load_world(mapName.value, map_layers=layers)
+            self.w = self.client.load_world(mapName.value, map_layers=layers)
+        
 
         self.currentMapName = mapName
 
@@ -85,6 +88,7 @@ class MapManager(ClientUser):
     def configureSpectator(self):
 
         (x, y, z) = self.getSpectatorPos()
+        (x, y, z ) =(-113, -5, 5)
         print(f"setting spectator position to ({x}, {y}, {z})")
         transform = carla.Transform(carla.Location(x=x, y=y, z=z), carla.Rotation(pitch=-90)) 
         if self.currentMapName == MapNames.circle_t_junctions:
