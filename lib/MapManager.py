@@ -99,7 +99,7 @@ class MapManager(ClientUser):
         #     transform = carla.Transform(carla.Location(x=x, y=y, z=z*3), carla.Rotation(pitch=-90)) 
 
         if self.currentMapName == MapNames.Town02_Opt:
-            transform = carla.Transform(carla.Location(x=x, y=y, z=z * 0.4), carla.Rotation(pitch=-90)) 
+            transform = carla.Transform(carla.Location(x=x, y=y, z=z * 0.4), carla.Rotation(pitch=180)) 
             
         
         spectator = self.world.get_spectator()
